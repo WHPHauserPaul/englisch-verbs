@@ -167,13 +167,19 @@ table.klickbar tbody tr:hover { background: var(--hover); }
 .frage { font-size: 2rem; font-weight: 700; margin-top: 1.5rem; }
 .loesung-platz { min-height: 5rem; }
 .loesung { font-size: 1.7rem; color: var(--blau); }
+.beispiel { margin-top: .6rem; font-size: 1rem; font-style: italic; color: var(--gedaempft); }
+.beispiel .lautsprecher { font-size: 1rem; font-style: normal; }
+.option .beispiel { margin-top: .2rem; font-size: .9rem; text-align: left; }
 .wort { display: inline-flex; align-items: center; gap: .3rem; overflow-wrap: anywhere; }
 .formen { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .3rem .6rem; }
 .trenner { color: var(--gedaempft); }
 .lautsprecher { border: none; background: none; padding: .2rem .35rem; font-size: 1.2rem; }
 .auswahl { display: flex; flex-direction: column; gap: .5rem; }
 .option { padding: .4rem 1rem; border: 2px solid var(--linie); border-radius: 10px; cursor: pointer; }
-.option .wort { display: flex; justify-content: space-between; }
+.option .beispiel { margin-top: .6rem; font-size: 1rem; font-style: italic; color: var(--gedaempft); }
+.beispiel .lautsprecher { font-size: 1rem; font-style: normal; }
+.option .beispiel { margin-top: .2rem; font-size: .9rem; text-align: left; }
+.wort { display: flex; justify-content: space-between; }
 .option.gewaehlt { border-color: var(--blau); background: #dbe8f5; }
 .aktion { margin-top: auto; width: 100%; }
 .aktion .gross { width: 100%; max-width: 22rem; }

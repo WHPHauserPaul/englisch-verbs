@@ -55,6 +55,7 @@ Am PC geht es auch mit der Tastatur: **Leertaste** zeigt die Lösung, **1 / 2 / 
 2. Einträge mit **Neuer Eintrag** eingeben oder **Aus Excel importieren**.
    - Spalten für Vokabeln: A Deutsch, B Englisch.
    - Spalten für Irregular Verbs: A Deutsch, B Present, C Past, D Past Participle.
+   - Optional dahinter ein Beispielsatz: bei Vokabeln Spalte C, bei Irregular Verbs Spalte E. Er erscheint beim Lernen klein unter der Lösung.
    - Eine Überschriftenzeile mit „Deutsch" wird übersprungen.
 3. Einen Eintrag antippen, um ihn zu ändern oder zu löschen. Der Lernstand der Kinder bleibt beim Ändern erhalten.
 4. Mehrere Bedeutungen mit Komma in ein Feld schreiben, z. B. „laufen, rennen".

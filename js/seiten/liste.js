@@ -65,10 +65,11 @@ export async function zeigeListe(ziel, id) {
       el('button', { onclick: () => datei.click() }, 'Aus Excel importieren'), datei),
     el('div', { class: 'tabelle-rahmen' }, el('table', { class: 'liste klickbar' },
       el('thead', {}, el('tr', {}, el('th', {}, 'Deutsch'), el('th', {}, irregular ? 'Present' : 'Englisch'),
-        irregular ? [el('th', {}, 'Past'), el('th', {}, 'Past Participle')] : null)),
+        irregular ? [el('th', {}, 'Past'), el('th', {}, 'Past Participle')] : null, el('th', {}, 'Beispielsatz'))),
       el('tbody', {}, eintraege.map(e => el('tr', { onclick: () => bearbeiten(e) },
         el('td', {}, e.deutsch), el('td', {}, e.englisch),
-        irregular ? [el('td', {}, e.past ?? ''), el('td', {}, e.past_participle ?? '')] : null))))));
+        irregular ? [el('td', {}, e.past ?? ''), el('td', {}, e.past_participle ?? '')] : null,
+        el('td', { class: 'klein' }, e.beispiel ?? '')))))));
 
   function umbenennen() {
     const name = el('input', { required: true, value: liste.name });
@@ -91,13 +92,15 @@ export async function zeigeListe(ziel, id) {
       englisch: el('input', { required: true, value: e?.englisch ?? '' }),
       past: el('input', { value: e?.past ?? '' }),
       past_participle: el('input', { value: e?.past_participle ?? '' }),
+      beispiel: el('input', { value: e?.beispiel ?? '' }),
     };
     const inhalt = el('div', { class: 'formular' },
       zeile('Deutsch', felder.deutsch),
       zeile(irregular ? 'Present' : 'Englisch', felder.englisch),
-      irregular ? [zeile('Past', felder.past), zeile('Past Participle', felder.past_participle)] : null);
+      irregular ? [zeile('Past', felder.past), zeile('Past Participle', felder.past_participle)] : null,
+      zeile('Beispielsatz', felder.beispiel));
     const d = fenster(e ? 'Eintrag bearbeiten' : 'Neuer Eintrag', inhalt, 'Eintrag speichern', () => {
-      const daten = { deutsch: felder.deutsch.value.trim(), englisch: felder.englisch.value.trim() };
+      const daten = { deutsch: felder.deutsch.value.trim(), englisch: felder.englisch.value.trim(), beispiel: felder.beispiel.value.trim() || null };
       if (irregular) {
         daten.past = felder.past.value.trim() || null;
         daten.past_participle = felder.past_participle.value.trim() || null;
@@ -136,7 +139,8 @@ export async function zeigeListe(ziel, id) {
     const start = naechstePosition();
     fenster(`${neu.length} Einträge erkannt`, el('div', { class: 'tabelle-rahmen vorschau' }, el('table', { class: 'liste' },
       el('tbody', {}, neu.map(e => el('tr', {}, el('td', {}, e.deutsch), el('td', {}, e.englisch),
-        irregular ? [el('td', {}, e.past ?? '–'), el('td', {}, e.past_participle ?? '–')] : null))))),
+        irregular ? [el('td', {}, e.past ?? '–'), el('td', {}, e.past_participle ?? '–')] : null,
+        el('td', { class: 'klein' }, e.beispiel ?? '')))))),
     'Einträge übernehmen', () => melden(() => D.eintraegeAnfuegen(neu.map((e, i) => ({ ...e, liste_id: id, position: start + i })))));
   }
 }

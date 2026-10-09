@@ -14,6 +14,7 @@ function bibliothek() {
 }
 
 // Spalten: Deutsch | Englisch, bei Irregular Verbs Deutsch | Present | Past | Past Participle.
+// Danach optional der Beispielsatz (LH 3.8): Spalte C bzw. bei Irregular Verbs Spalte E.
 // Eine erste Zeile mit "Deutsch" gilt als Überschrift. Leere Zeilen werden übersprungen.
 export async function eintraegeLesen(datei, art) {
   const XLSX = await bibliothek();
@@ -25,6 +26,6 @@ export async function eintraegeLesen(datei, art) {
   return zeilen
     .filter(z => z[0] && z[1])
     .map(z => art === 'irregular'
-      ? { deutsch: z[0], englisch: z[1], past: z[2] || null, past_participle: z[3] || null }
-      : { deutsch: z[0], englisch: z[1] });
+      ? { deutsch: z[0], englisch: z[1], past: z[2] || null, past_participle: z[3] || null, beispiel: z[4] || null }
+      : { deutsch: z[0], englisch: z[1], beispiel: z[2] || null });
 }

@@ -16,18 +16,21 @@ const NOTEN = [
 // Ein englisches Wort mit Lautsprecher (LH 7.3).
 const englisch = text => el('span', { class: 'wort' }, text || '–', text ? lautsprecher(text, meldung) : null);
 
+// LH 3.8: Beispielsatz klein unter der Lösung, erst nach „Lösung zeigen“, weil er das englische Wort enthält.
+const beispiel = e => e.beispiel ? el('div', { class: 'beispiel' }, e.beispiel, lautsprecher(e.beispiel, meldung)) : null;
+
 function frageUndLoesung(k) {
   const e = k.eintrag;
   if (k.richtung === 'de_en') {
     // LH 7.11: nach einer Verwechslung nennt die Frage, welches Verb diesmal nicht gemeint ist.
     const nicht = k.nicht?.length ? ` (nicht ${k.nicht.map(x => x.englisch).join(', ')})` : '';
-    return { frage: el('span', { class: 'wort' }, e.deutsch + nicht), loesung: englisch(e.englisch) };
+    return { frage: el('span', { class: 'wort' }, e.deutsch + nicht), loesung: [englisch(e.englisch), beispiel(e)] };
   }
-  if (k.richtung === 'en_de') return { frage: englisch(e.englisch), loesung: el('span', { class: 'wort' }, e.deutsch) };
+  if (k.richtung === 'en_de') return { frage: englisch(e.englisch), loesung: [el('span', { class: 'wort' }, e.deutsch), beispiel(e)] };
   // LH 6.1 c: Grundform → beide Vergangenheitsformen, eine gemeinsame Bewertung (LH 6.6).
   return {
     frage: englisch(e.englisch),
-    loesung: el('span', { class: 'formen' }, englisch(e.past), el('span', { class: 'trenner' }, '·'), englisch(e.past_participle)),
+    loesung: [el('span', { class: 'formen' }, englisch(e.past), el('span', { class: 'trenner' }, '·'), englisch(e.past_participle)), beispiel(e)],
   };
 }
 
@@ -89,7 +92,7 @@ export async function zeigeLernen(ziel, id) {
             gewaehlt = e;
             zeile.parentNode.querySelectorAll('.option').forEach(o => o.classList.toggle('gewaehlt', o === zeile));
           },
-        }, englisch(e.englisch));
+        }, englisch(e.englisch), beispiel(e));
         return zeile;
       }));
     }

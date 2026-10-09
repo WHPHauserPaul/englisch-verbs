@@ -1,8 +1,8 @@
 # Lastenheft Englisch-Verbs (Arbeitstitel)
 
-Fassung 4 · 09.10.2026 · Status: **freigegeben** (09.10.2026)
+Fassung 5 · 09.10.2026 · Status: **freigegeben** (09.10.2026)
 
-Änderungen: Fassung 4: Alles üben entfällt, die Richtungswahl reicht; vor einer Schulaufgabe hilft Fortschritt zurücksetzen (5.3, 5.4, 7.9). Fassung 3: Abfragerichtung auf der Kartei wählbar (5.4). Fassung 2: mehrere richtige Verben bei Deutsch → Englisch, das Kind wählt aus (7.11).
+Änderungen: Fassung 5: Beispielsatz je Eintrag (3.8). Fassung 4: Alles üben entfällt, die Richtungswahl reicht; vor einer Schulaufgabe hilft Fortschritt zurücksetzen (5.3, 5.4, 7.9). Fassung 3: Abfragerichtung auf der Kartei wählbar (5.4). Fassung 2: mehrere richtige Verben bei Deutsch → Englisch, das Kind wählt aus (7.11).
 
 Privates Projekt. Web-App zum Vokabel- und Verbenlernen mit Karteikasten. Später eventuell für eine Schule.
 
@@ -42,9 +42,10 @@ Privates Projekt. Web-App zum Vokabel- und Verbenlernen mit Karteikasten. Späte
 3.2 Die Einträge werden genau so angezeigt, wie sie eingegeben wurden (mit oder ohne „to"), damit auch Phrasen möglich sind.
 3.3 Mehrere Bedeutungen stehen in einem Feld, durch Komma getrennt („bekommen, holen"). Die Lösung zeigt das ganze Feld.
 3.4 Lehrer legen Listen an, benennen um, löschen sie (mit Rückfrage), und fügen Einträge hinzu, ändern oder löschen sie.
-3.5 **Import aus Excel** (.xlsx oder .csv): Spalten Deutsch | Englisch, bei Irregular Verbs Deutsch | Present | Past | Past Participle. Vor dem Übernehmen zeigt eine Vorschau die erkannten Einträge.
+3.5 **Import aus Excel** (.xlsx oder .csv): Spalten Deutsch | Englisch, bei Irregular Verbs Deutsch | Present | Past | Past Participle, jeweils optional dahinter der Beispielsatz (3.8). Vor dem Übernehmen zeigt eine Vorschau die erkannten Einträge.
 3.6 **Fotos und Scans** von Buchseiten werden außerhalb der App ausgewertet: Claude liest sie in einer Sitzung aus und liefert eine Excel-Datei für den Import (3.5). In die App kommt keine Bilderkennung, weil das laufende Kosten verursachen würde.
 3.7 Ändert sich ein Eintrag, bleibt der Lernstand der Kinder zu diesem Eintrag erhalten.
+3.8 Jeder Eintrag kann einen **Beispielsatz** haben (optional). Beim Excel-Import steht er in der Spalte nach den Wörtern (Vokabeln: Spalte C, Irregular Verbs: Spalte E). In der Lernrunde erscheint er klein unter der Lösung, mit 🔊, und erst nach „Lösung zeigen", weil er das englische Wort enthält. Er wird nicht bewertet.
 
 ## 4. Zuordnung
 

@@ -77,3 +77,10 @@ Damit der Admin in der App Konten anlegen kann (LH 2.2):
 5. Am Handy die Adresse öffnen und zum Startbildschirm hinzufügen:
    - Android (Chrome): Menü **⋮**, dann **Zum Startbildschirm hinzufügen**.
    - iPhone (Safari): **Teilen**, dann **Zum Home-Bildschirm**.
+
+## Nachträge
+Spätere Änderungen an der Datenbank. Jeden Nachtrag einmal ausführen: im **SQL Editor** eine neue Abfrage öffnen, den Inhalt der Datei einfügen und **Run** klicken.
+
+| Datei | Wofür |
+|---|---|
+| [`nachtrag-01-beispielsatz.sql`](nachtrag-01-beispielsatz.sql) | Beispielsatz je Eintrag (LH 3.8) |
