@@ -1,8 +1,8 @@
 # Lastenheft Englisch-Verbs (Arbeitstitel)
 
-Fassung 2 · 09.10.2026 · Status: **freigegeben** (09.10.2026)
+Fassung 3 · 09.10.2026 · Status: **freigegeben** (09.10.2026)
 
-Änderungen: Fassung 2: mehrere richtige Verben bei Deutsch → Englisch, das Kind wählt aus (7.11).
+Änderungen: Fassung 3: Abfragerichtung auf der Kartei wählbar (5.4). Fassung 2: mehrere richtige Verben bei Deutsch → Englisch, das Kind wählt aus (7.11).
 
 Privates Projekt. Web-App zum Vokabel- und Verbenlernen mit Karteikasten. Später eventuell für eine Schule.
 
@@ -61,6 +61,8 @@ Privates Projekt. Web-App zum Vokabel- und Verbenlernen mit Karteikasten. Späte
 - Knopf **Alles üben**: alle Karten, unabhängig von der Fälligkeit (7.9)
 - Ansicht der Fächer je Abfragerichtung (6.2)
 - **Fortschritt zurücksetzen**, mit Rückfrage
+
+5.4 Auf der Kartei lässt sich die **Richtung** wählen: alle Richtungen (Standard) oder eine einzelne (z. B. nur Deutsch → Englisch). Die Wahl gilt für Lernen und Alles üben, die Zahl auf dem Lernen-Knopf zählt nur diese Richtung. Sie wird je Liste auf dem Gerät gemerkt. Die Kachel der Startseite zählt weiter alle Richtungen.
 
 ## 6. Karteikasten (Leitner-System)
 

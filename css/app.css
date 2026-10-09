@@ -124,6 +124,7 @@ a { color: var(--blau); }
 .fach5 { background: var(--fach5); }
 
 /* Kartei */
+.richtung-wahl select { flex: 1; max-width: 22rem; }
 .grosse-knoepfe { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: 1.5rem; }
 
 /* Tabellen */

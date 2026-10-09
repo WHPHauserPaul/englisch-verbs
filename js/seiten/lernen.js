@@ -2,6 +2,7 @@
 import * as D from '../cloud/daten.js';
 import { richtungName, istFaellig, bewerten, mischen, gleicheBedeutung } from '../karteikasten.js';
 import { listenStand } from './start.js';
+import { gewaehlteRichtung, inRichtung } from './kartei.js';
 import { lautsprecher } from '../sprechen.js';
 import { el, meldung } from '../ui.js';
 
@@ -36,7 +37,9 @@ function frageUndLoesung(k) {
 async function runde(ziel, id, zaehlt) {
   const liste = await D.liste(id);
   const alle = await listenStand(liste);
-  let stapel = mischen(zaehlt ? alle.filter(istFaellig) : alle);
+  // LH 5.4: nur die auf der Kartei gewählte Richtung.
+  const auswahlKarten = inRichtung(alle, gewaehlteRichtung(liste));
+  let stapel = mischen(zaehlt ? auswahlKarten.filter(istFaellig) : auswahlKarten);
   if (!stapel.length) {
     location.hash = `#/kartei/${id}`;
     return;
