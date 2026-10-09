@@ -1,6 +1,6 @@
 // LH 7: Lernrunde. Immer gleicher Ablauf: Frage, auf Zettel schreiben, Lösung zeigen, selbst bewerten.
 import * as D from '../cloud/daten.js';
-import { richtungName, istFaellig, bewerten, mischen } from '../karteikasten.js';
+import { richtungName, istFaellig, bewerten, mischen, gleicheBedeutung } from '../karteikasten.js';
 import { listenStand } from './start.js';
 import { lautsprecher } from '../sprechen.js';
 import { el, meldung } from '../ui.js';
@@ -18,9 +18,13 @@ const NOTEN = [
 // Ein englisches Wort mit Lautsprecher (LH 7.3).
 const englisch = text => el('span', { class: 'wort' }, text || '–', text ? lautsprecher(text, meldung) : null);
 
-function frageUndLoesung(liste, k) {
+function frageUndLoesung(k) {
   const e = k.eintrag;
-  if (k.richtung === 'de_en') return { frage: el('span', { class: 'wort' }, e.deutsch), loesung: englisch(e.englisch) };
+  if (k.richtung === 'de_en') {
+    // LH 7.11: nach einer Verwechslung nennt die Frage, welches Verb diesmal nicht gemeint ist.
+    const nicht = k.nicht?.length ? ` (nicht ${k.nicht.map(x => x.englisch).join(', ')})` : '';
+    return { frage: el('span', { class: 'wort' }, e.deutsch + nicht), loesung: englisch(e.englisch) };
+  }
   if (k.richtung === 'en_de') return { frage: englisch(e.englisch), loesung: el('span', { class: 'wort' }, e.deutsch) };
   // LH 6.1 c: Grundform → beide Vergangenheitsformen, eine gemeinsame Bewertung (LH 6.6).
   return {
@@ -37,9 +41,13 @@ async function runde(ziel, id, zaehlt) {
     location.hash = `#/kartei/${id}`;
     return;
   }
+  const eintraege = [...new Set(alle.map(k => k.eintrag))];
   // Nur die erste Antwort je Karte zählt (LH 6.5); Wiederholungen in der Runde ändern das Fach nicht.
   const ersteNote = new Map();
   let aufgedeckt = false;
+  // LH 7.11: mögliche Verben der aktuellen Karte und das, welches das Kind angetippt hat.
+  let moegliche = [];
+  let gewaehlt = null;
 
   const zaehler = el('span', { class: 'zaehler' });
   const flaeche = el('div', { class: 'lernkarte' });
@@ -65,8 +73,26 @@ async function runde(ziel, id, zaehlt) {
     aufgedeckt = false;
     zaehler.textContent = stapel.length === 1 ? 'noch 1 Karte' : `noch ${stapel.length} Karten`;
     const k = stapel[0];
-    const { frage, loesung } = frageUndLoesung(liste, k);
+    const { frage, loesung } = frageUndLoesung(k);
     k.loesung = loesung;
+    gewaehlt = null;
+    moegliche = k.richtung === 'de_en'
+      ? [k.eintrag, ...gleicheBedeutung(k.eintrag, eintraege).filter(e => !k.nicht?.includes(e))]
+        .sort((a, b) => a.englisch.localeCompare(b.englisch))
+      : [];
+    // LH 7.11: mehrere richtige Verben → alle zeigen, das Kind tippt an, welches es geschrieben hat.
+    if (moegliche.length > 1) {
+      k.loesung = el('div', { class: 'auswahl' }, moegliche.map(e => {
+        const zeile = el('div', {
+          class: 'option', role: 'button', tabindex: 0,
+          onclick: () => {
+            gewaehlt = e;
+            zeile.parentNode.querySelectorAll('.option').forEach(o => o.classList.toggle('gewaehlt', o === zeile));
+          },
+        }, englisch(e.englisch));
+        return zeile;
+      }));
+    }
     flaeche.replaceChildren(
       el('div', { class: 'richtung' }, richtungName(liste.art, k.richtung)),
       el('div', { class: 'frage' }, frage),
@@ -83,16 +109,38 @@ async function runde(ziel, id, zaehlt) {
   }
 
   function noteGeben(note) {
+    if (moegliche.length > 1 && note !== 'falsch' && !gewaehlt) {
+      return meldung('Bitte zuerst antippen, welches Verb du geschrieben hast');
+    }
     const k = stapel.shift();
+    // ✗ heißt „falsches Wort“ und gilt deshalb immer für die gefragte Karte.
+    if (gewaehlt && gewaehlt !== k.eintrag && note !== 'falsch') {
+      // LH 7.11: Die Bewertung gilt für das angetippte Verb. Die gefragte Karte kommt in der
+      // Runde noch einmal, mit dem Hinweis, welches Verb nicht gemeint ist.
+      const andere = alle.find(x => x.eintrag === gewaehlt && x.richtung === 'de_en');
+      stapel = stapel.filter(x => x !== andere);
+      werten(andere, note);
+      k.nicht = [...(k.nicht ?? []), gewaehlt];
+      zurueckstellen(k);
+    } else {
+      werten(k, note);
+    }
+    if (stapel.length) zeigen();
+    else ende();
+  }
+
+  function werten(k, note) {
     if (!ersteNote.has(k)) {
       ersteNote.set(k, note);
       // Sofort speichern, damit ein Abbruch nichts verliert (LH 7.6).
       if (zaehlt) D.standSpeichern(bewerten(k, note)).catch(f => meldung(`Nicht gespeichert: ${f.message}`));
     }
-    // LH 7.4: nicht gewusst → frühestens nach 3 anderen Karten noch einmal, bis sie sitzt.
-    if (note !== 'richtig') stapel.splice(Math.min(3, stapel.length), 0, k);
-    if (stapel.length) zeigen();
-    else ende();
+    if (note !== 'richtig') zurueckstellen(k);
+  }
+
+  // LH 7.4: nicht gewusst → frühestens nach 3 anderen Karten noch einmal, bis sie sitzt.
+  function zurueckstellen(k) {
+    stapel.splice(Math.min(3, stapel.length), 0, k);
   }
 
   // LH 7.8: Übersicht der ersten Antworten.

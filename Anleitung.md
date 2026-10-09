@@ -42,6 +42,8 @@ Wer in Fach 5 nochmal richtig liegt, sieht die Karte erst nach 30 Tagen wieder.
 
 Bei der dritten Richtung gibt es nur ✓, wenn beide Formen stimmen.
 
+**Mehrere richtige Verben:** Manche deutschen Wörter haben mehrere englische Verben, z. B. „treffen" (hit und meet). Dann zeigt die Lösung alle. Tippe das an, das du geschrieben hast, und bewerte dich dann. War es nicht das gesuchte Verb, kommt die Frage später nochmal, z. B. als „treffen (nicht hit)".
+
 Am PC geht es auch mit der Tastatur: **Leertaste** zeigt die Lösung, **1 / 2 / 3** bewertet mit ✓ / ~ / ✗.
 
 ## Für Lehrer

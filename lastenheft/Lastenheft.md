@@ -1,6 +1,8 @@
 # Lastenheft Englisch-Verbs (Arbeitstitel)
 
-Fassung 1 · 09.10.2026 · Status: **freigegeben** (09.10.2026)
+Fassung 2 · 09.10.2026 · Status: **freigegeben** (09.10.2026)
+
+Änderungen: Fassung 2: mehrere richtige Verben bei Deutsch → Englisch, das Kind wählt aus (7.11).
 
 Privates Projekt. Web-App zum Vokabel- und Verbenlernen mit Karteikasten. Später eventuell für eine Schule.
 
@@ -96,6 +98,10 @@ Privates Projekt. Web-App zum Vokabel- und Verbenlernen mit Karteikasten. Späte
 7.8 Am Ende eine kurze Übersicht: Anzahl ✓ / ~ / ✗ beim ersten Versuch.
 7.9 **Alles üben** läuft genauso ab, verändert aber die Fächer nicht. Gedacht ist es z. B. für die Vorbereitung auf eine Schulaufgabe.
 7.10 Ist nichts fällig, meldet der Lernen-Knopf: „Heute ist nichts fällig, nächste Karten am …".
+7.11 **Mehrere richtige Verben** (z. B. „treffen": hit und meet). Ein anderer Eintrag der Liste gilt bei Deutsch → Englisch ebenfalls als richtig, wenn er alle deutschen Bedeutungen der Frage auch hat. Bei „fahren" sind also drive und ride richtig, bei „reiten, fahren" nur ride.
+- 7.11.1 Die Lösung zeigt alle richtigen Verben. Das Kind tippt an, welches es geschrieben hat, und bewertet dann. Für ✗ ist keine Auswahl nötig, es gilt immer für die gefragte Karte.
+- 7.11.2 Die Bewertung gilt für das angetippte Verb.
+- 7.11.3 War das angetippte Verb nicht das gefragte, kommt die gefragte Karte in der Runde noch einmal (frühestens nach 3 anderen Karten), mit Hinweis, z. B. „treffen (nicht hit)". Das ausgeschlossene Verb steht dann nicht mehr in der Lösung.
 
 ## 8. Lehreransicht
 

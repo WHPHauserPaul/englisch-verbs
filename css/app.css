@@ -170,6 +170,10 @@ table.klickbar tbody tr:hover { background: var(--hover); }
 .formen { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .3rem .6rem; }
 .trenner { color: var(--gedaempft); }
 .lautsprecher { border: none; background: none; padding: .2rem .35rem; font-size: 1.2rem; }
+.auswahl { display: flex; flex-direction: column; gap: .5rem; }
+.option { padding: .4rem 1rem; border: 2px solid var(--linie); border-radius: 10px; cursor: pointer; }
+.option .wort { display: flex; justify-content: space-between; }
+.option.gewaehlt { border-color: var(--blau); background: #dbe8f5; }
 .aktion { margin-top: auto; width: 100%; }
 .aktion .gross { width: 100%; max-width: 22rem; }
 .noten { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; max-width: 26rem; margin: 0 auto; }

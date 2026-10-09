@@ -46,6 +46,18 @@ export function kartenBilden(liste, eintraege, staende) {
   }));
 }
 
+// LH 7.11: deutsche Bedeutungen eines Eintrags, durch Komma (oder Strichpunkt) getrennt (LH 3.3).
+function bedeutungen(text) {
+  return text.split(/[,;]/).map(b => b.trim().toLowerCase()).filter(Boolean);
+}
+
+// LH 7.11: andere Einträge, die alle deutschen Bedeutungen dieses Eintrags auch haben und damit
+// bei Deutsch → Englisch ebenso richtig wären (z. B. „treffen“: hit und meet).
+export function gleicheBedeutung(eintrag, eintraege) {
+  const gesucht = bedeutungen(eintrag.deutsch);
+  return eintraege.filter(e => e !== eintrag && gesucht.every(b => bedeutungen(e.deutsch).includes(b)));
+}
+
 export const istFaellig = karte => karte.faellig_am <= heute();
 
 // LH 6.5: ✓ ein Fach weiter, ~ bleibt, ✗ zurück in Fach 1.
