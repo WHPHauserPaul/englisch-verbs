@@ -1,8 +1,8 @@
 # Lastenheft Englisch-Verbs (Arbeitstitel)
 
-Fassung 3 · 09.10.2026 · Status: **freigegeben** (09.10.2026)
+Fassung 4 · 09.10.2026 · Status: **freigegeben** (09.10.2026)
 
-Änderungen: Fassung 3: Abfragerichtung auf der Kartei wählbar (5.4). Fassung 2: mehrere richtige Verben bei Deutsch → Englisch, das Kind wählt aus (7.11).
+Änderungen: Fassung 4: Alles üben entfällt, die Richtungswahl reicht; vor einer Schulaufgabe hilft Fortschritt zurücksetzen (5.3, 5.4, 7.9). Fassung 3: Abfragerichtung auf der Kartei wählbar (5.4). Fassung 2: mehrere richtige Verben bei Deutsch → Englisch, das Kind wählt aus (7.11).
 
 Privates Projekt. Web-App zum Vokabel- und Verbenlernen mit Karteikasten. Später eventuell für eine Schule.
 
@@ -58,11 +58,10 @@ Privates Projekt. Web-App zum Vokabel- und Verbenlernen mit Karteikasten. Späte
 5.2 Die Kachel zeigt den Namen, die Zahl der heute fälligen Karten und einen kleinen Balken mit der Verteilung auf die 5 Fächer.
 5.3 Antippen der Kachel öffnet die Kartei der Liste:
 - Knopf **Lernen**: alle fälligen Karten (Kapitel 7)
-- Knopf **Alles üben**: alle Karten, unabhängig von der Fälligkeit (7.9)
 - Ansicht der Fächer je Abfragerichtung (6.2)
 - **Fortschritt zurücksetzen**, mit Rückfrage
 
-5.4 Auf der Kartei lässt sich die **Richtung** wählen: alle Richtungen (Standard) oder eine einzelne (z. B. nur Deutsch → Englisch). Die Wahl gilt für Lernen und Alles üben, die Zahl auf dem Lernen-Knopf zählt nur diese Richtung. Sie wird je Liste auf dem Gerät gemerkt. Die Kachel der Startseite zählt weiter alle Richtungen.
+5.4 Auf der Kartei lässt sich die **Richtung** wählen: alle Richtungen (Standard) oder eine einzelne (z. B. nur Deutsch → Englisch). Die Wahl gilt für Lernen, die Zahl auf dem Lernen-Knopf zählt nur diese Richtung. Sie wird je Liste auf dem Gerät gemerkt. Die Kachel der Startseite zählt weiter alle Richtungen.
 
 ## 6. Karteikasten (Leitner-System)
 
@@ -98,7 +97,7 @@ Privates Projekt. Web-App zum Vokabel- und Verbenlernen mit Karteikasten. Späte
 7.6 Jede Bewertung wird sofort gespeichert. Ein Abbruch durch Schließen der App verliert nichts.
 7.7 Oben steht ein Zähler: „noch 12 Karten".
 7.8 Am Ende eine kurze Übersicht: Anzahl ✓ / ~ / ✗ beim ersten Versuch.
-7.9 **Alles üben** läuft genauso ab, verändert aber die Fächer nicht. Gedacht ist es z. B. für die Vorbereitung auf eine Schulaufgabe.
+7.9 entfällt (Fassung 4). Wer vor einer Schulaufgabe alle Karten wiederholen will, setzt den Fortschritt zurück (5.3).
 7.10 Ist nichts fällig, meldet der Lernen-Knopf: „Heute ist nichts fällig, nächste Karten am …".
 7.11 **Mehrere richtige Verben** (z. B. „treffen": hit und meet). Ein anderer Eintrag der Liste gilt bei Deutsch → Englisch ebenfalls als richtig, wenn er alle deutschen Bedeutungen der Frage auch hat. Bei „fahren" sind also drive und ride richtig, bei „reiten, fahren" nur ride.
 - 7.11.1 Die Lösung zeigt alle richtigen Verben. Das Kind tippt an, welches es geschrieben hat, und bewertet dann. Für ✗ ist keine Auswahl nötig, es gilt immer für die gefragte Karte.

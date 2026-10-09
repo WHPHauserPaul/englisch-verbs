@@ -33,9 +33,9 @@ Adresse: **https://whphauserpaul.github.io/englisch-verbs/**. Am Handy zum Start
 
 Wer in Fach 5 nochmal richtig liegt, sieht die Karte erst nach 30 Tagen wieder.
 
-**Nur eine Richtung üben:** Auf der Kartei oben bei **Richtung** z. B. „Deutsch → Englisch" wählen. Dann fragen **Lernen** und **Alles üben** nur diese Richtung ab. Die Wahl bleibt gespeichert, bis du wieder „Alle Richtungen" wählst. Fällige Karten der anderen Richtungen warten so lange.
+**Nur eine Richtung üben:** Auf der Kartei oben bei **Richtung** z. B. „Deutsch → Englisch" wählen. Dann fragt **Lernen** nur diese Richtung ab. Die Wahl bleibt gespeichert, bis du wieder „Alle Richtungen" wählst. Fällige Karten der anderen Richtungen warten so lange.
 
-**Alles üben** fragt alle Karten ab, z. B. vor einer Schulaufgabe. Das ändert nichts an den Fächern.
+**Vor einer Schulaufgabe alles wiederholen:** Auf der Kartei **Fortschritt zurücksetzen**. Dann liegen alle Karten wieder in Fach 1 und sind sofort fällig.
 
 **Irregular Verbs** werden dreifach abgefragt, jede Richtung ist eine eigene Kartei:
 - Deutsch → Present

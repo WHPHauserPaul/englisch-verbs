@@ -125,7 +125,7 @@ a { color: var(--blau); }
 
 /* Kartei */
 .richtung-wahl select { flex: 1; max-width: 22rem; }
-.grosse-knoepfe { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: 1.5rem; }
+.grosse-knoepfe { display: grid; grid-template-columns: 1fr; gap: .75rem; margin-bottom: 1.5rem; }
 
 /* Tabellen */
 table.faecher th, table.faecher td { padding: .5rem .45rem; }

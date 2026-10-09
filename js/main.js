@@ -3,7 +3,7 @@ import { zeigeAnmeldung } from './seiten/anmelden.js';
 import { zeigePasswortSetzenDialog } from './seiten/passwortSetzen.js';
 import { zeigeStart } from './seiten/start.js';
 import { zeigeKartei } from './seiten/kartei.js';
-import { zeigeLernen, zeigeUeben } from './seiten/lernen.js';
+import { zeigeLernen } from './seiten/lernen.js';
 import { zeigeListen } from './seiten/listen.js';
 import { zeigeListe } from './seiten/liste.js';
 import { zeigeGruppen } from './seiten/gruppen.js';
@@ -17,7 +17,6 @@ const seiten = {
   start: { zeigen: zeigeStart },
   kartei: { zeigen: zeigeKartei },
   lernen: { zeigen: zeigeLernen, vollbild: true },
-  ueben: { zeigen: zeigeUeben, vollbild: true },
   listen: { zeigen: zeigeListen, menue: 'listen' },
   liste: { zeigen: zeigeListe, menue: 'listen' },
   gruppen: { zeigen: zeigeGruppen, menue: 'gruppen' },

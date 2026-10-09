@@ -6,9 +6,6 @@ import { gewaehlteRichtung, inRichtung } from './kartei.js';
 import { lautsprecher } from '../sprechen.js';
 import { el, meldung } from '../ui.js';
 
-export const zeigeLernen = (ziel, id) => runde(ziel, id, true);
-// LH 7.9: alle Karten, ohne die Fächer zu verändern.
-export const zeigeUeben = (ziel, id) => runde(ziel, id, false);
 
 const NOTEN = [
   ['richtig', '✓', 'Richtiges Wort, richtig geschrieben'],
@@ -34,12 +31,12 @@ function frageUndLoesung(k) {
   };
 }
 
-async function runde(ziel, id, zaehlt) {
+export async function zeigeLernen(ziel, id) {
   const liste = await D.liste(id);
   const alle = await listenStand(liste);
   // LH 5.4: nur die auf der Kartei gewählte Richtung.
   const auswahlKarten = inRichtung(alle, gewaehlteRichtung(liste));
-  let stapel = mischen(zaehlt ? auswahlKarten.filter(istFaellig) : auswahlKarten);
+  let stapel = mischen(auswahlKarten.filter(istFaellig));
   if (!stapel.length) {
     location.hash = `#/kartei/${id}`;
     return;
@@ -56,7 +53,7 @@ async function runde(ziel, id, zaehlt) {
   const flaeche = el('div', { class: 'lernkarte' });
   ziel.append(
     el('div', { class: 'lernkopf' },
-      el('span', { class: 'lern-titel' }, zaehlt ? liste.name : `${liste.name} · üben`),
+      el('span', { class: 'lern-titel' }, liste.name),
       zaehler,
       el('button', { onclick: ende }, 'Beenden')),
     flaeche);
@@ -136,7 +133,7 @@ async function runde(ziel, id, zaehlt) {
     if (!ersteNote.has(k)) {
       ersteNote.set(k, note);
       // Sofort speichern, damit ein Abbruch nichts verliert (LH 7.6).
-      if (zaehlt) D.standSpeichern(bewerten(k, note)).catch(f => meldung(`Nicht gespeichert: ${f.message}`));
+      D.standSpeichern(bewerten(k, note)).catch(f => meldung(`Nicht gespeichert: ${f.message}`));
     }
     if (note !== 'richtig') zurueckstellen(k);
   }
