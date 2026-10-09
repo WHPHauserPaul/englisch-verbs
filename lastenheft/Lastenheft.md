@@ -1,6 +1,6 @@
 # Lastenheft Englisch-Verbs (Arbeitstitel)
 
-Fassung 1 · 09.10.2026 · Status: **Entwurf, wartet auf Freigabe**
+Fassung 1 · 09.10.2026 · Status: **freigegeben** (09.10.2026)
 
 Privates Projekt. Web-App zum Vokabel- und Verbenlernen mit Karteikasten. Später eventuell für eine Schule.
 
