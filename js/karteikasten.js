@@ -90,10 +90,6 @@ export function verteilung(karten) {
   return n;
 }
 
-// LH 7.10: wann wieder etwas fällig ist.
-export function naechsteFaelligkeit(karten) {
-  return karten.map(k => k.faellig_am).filter(d => d > heute()).sort()[0] ?? null;
-}
 
 export function mischen(feld) {
   const a = [...feld];

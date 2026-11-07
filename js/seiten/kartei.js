@@ -1,6 +1,6 @@
 // LH 5.3 / 5.4 / 6.2: Kartei einer Liste mit Lernen, Fächern je Richtung und Zurücksetzen.
 import * as D from '../cloud/daten.js';
-import { RICHTUNGEN, richtungName, istFaellig, verteilung, naechsteFaelligkeit, datumText } from '../karteikasten.js';
+import { RICHTUNGEN, richtungName, istFaellig, verteilung } from '../karteikasten.js';
 import { listenStand } from './start.js';
 import { el, meldung, fragen, auswahl } from '../ui.js';
 
@@ -43,11 +43,11 @@ export async function zeigeKartei(ziel, id) {
       el('button', {
         class: 'haupt gross',
         onclick: () => {
-          if (faellig) return (location.hash = `#/lernen/${id}`);
-          const naechste = naechsteFaelligkeit(karten);
-          meldung(naechste ? `Heute ist nichts fällig, nächste Karten am ${datumText(naechste)}` : 'Heute ist nichts fällig', 'info');
+          // LH 7.10: Lernen geht immer; ohne fällige Karten kommen alle.
+          if (karten.length) return (location.hash = `#/lernen/${id}`);
+          meldung('Die Liste hat noch keine Einträge');
         },
-      }, faellig ? `Lernen (${faellig})` : 'Lernen')));
+      }, faellig ? `Lernen (${faellig})` : 'Lernen (alle)')));
 
   // LH 6.2: jede Richtung als eigene Kartei.
   ziel.append(el('div', { class: 'tabelle-rahmen' }, el('table', { class: 'liste faecher' },

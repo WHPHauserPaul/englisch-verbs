@@ -39,7 +39,9 @@ export async function zeigeLernen(ziel, id) {
   const alle = await listenStand(liste);
   // LH 5.4: nur die auf der Kartei gewählte Richtung.
   const auswahlKarten = inRichtung(alle, gewaehlteRichtung(liste));
-  let stapel = mischen(auswahlKarten.filter(istFaellig));
+  // LH 7.10: Ist nichts fällig, kommen alle Karten, die aus den niedrigen Fächern zuerst.
+  const faellige = auswahlKarten.filter(istFaellig);
+  let stapel = faellige.length ? mischen(faellige) : mischen(auswahlKarten).sort((a, b) => a.fach - b.fach);
   if (!stapel.length) {
     location.hash = `#/kartei/${id}`;
     return;

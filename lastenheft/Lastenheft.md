@@ -1,8 +1,8 @@
 # Lastenheft Englisch-Verbs (Arbeitstitel)
 
-Fassung 5 · 09.10.2026 · Status: **freigegeben** (09.10.2026)
+Fassung 6 · 07.11.2026 · Status: **freigegeben** (07.11.2026)
 
-Änderungen: Fassung 5: Beispielsatz je Eintrag (3.8). Fassung 4: Alles üben entfällt, die Richtungswahl reicht; vor einer Schulaufgabe hilft Fortschritt zurücksetzen (5.3, 5.4, 7.9). Fassung 3: Abfragerichtung auf der Kartei wählbar (5.4). Fassung 2: mehrere richtige Verben bei Deutsch → Englisch, das Kind wählt aus (7.11).
+Änderungen: Fassung 6: Lernen geht immer, ohne fällige Karten kommen alle (7.10). Fassung 5: Beispielsatz je Eintrag (3.8). Fassung 4: Alles üben entfällt, die Richtungswahl reicht; vor einer Schulaufgabe hilft Fortschritt zurücksetzen (5.3, 5.4, 7.9). Fassung 3: Abfragerichtung auf der Kartei wählbar (5.4). Fassung 2: mehrere richtige Verben bei Deutsch → Englisch, das Kind wählt aus (7.11).
 
 Privates Projekt. Web-App zum Vokabel- und Verbenlernen mit Karteikasten. Später eventuell für eine Schule.
 
@@ -99,7 +99,7 @@ Privates Projekt. Web-App zum Vokabel- und Verbenlernen mit Karteikasten. Späte
 7.7 Oben steht ein Zähler: „noch 12 Karten".
 7.8 Am Ende eine kurze Übersicht: Anzahl ✓ / ~ / ✗ beim ersten Versuch.
 7.9 entfällt (Fassung 4). Wer vor einer Schulaufgabe alle Karten wiederholen will, setzt den Fortschritt zurück (5.3).
-7.10 Ist nichts fällig, meldet der Lernen-Knopf: „Heute ist nichts fällig, nächste Karten am …".
+7.10 Lernen geht immer. Ist nichts fällig, kommen alle Karten (der gewählten Richtung, 5.4), die aus den niedrigen Fächern zuerst; der Knopf heißt dann „Lernen (alle)". Die Bewertung zählt wie sonst auch (6.5).
 7.11 **Mehrere richtige Verben** (z. B. „treffen": hit und meet). Ein anderer Eintrag der Liste gilt bei Deutsch → Englisch ebenfalls als richtig, wenn er alle deutschen Bedeutungen der Frage auch hat. Bei „fahren" sind also drive und ride richtig, bei „reiten, fahren" nur ride.
 - 7.11.1 Die Lösung zeigt alle richtigen Verben. Das Kind tippt an, welches es geschrieben hat, und bewertet dann. Für ✗ ist keine Auswahl nötig, es gilt immer für die gefragte Karte.
 - 7.11.2 Die Bewertung gilt für das angetippte Verb.
